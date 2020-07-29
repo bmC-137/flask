@@ -123,7 +123,7 @@ async def notify():
     books = Copy.query.filter(Copy.issued_by is not None).all()
     for book in books:
         if book.date_return.hour == datetime.now().hour and book.date_return.date == datetime.now().date:
-            send_mail('Notification', 'info@itenv.net', [book.issue.email], f"""Notification""")
+            send_mail('Notification', 'info@changem.com', [book.issue.email], f"""Notification""")
 
 #Login Manager
 
@@ -202,7 +202,7 @@ def register_user():
     db.session.add(user)
     db.session.commit()
     login_user(user)
-    send_email('Your Registration was successfull!', 'info@itenv.net', [ current_user.email ], f"""Thank you for registering""")
+    send_email('Your Registration was successfull!', 'info@changeme.com', [ current_user.email ], f"""Thank you for registering""")
     return redirect('/dashboard')
 
 @app.route('/dashboard', methods=['GET'])
